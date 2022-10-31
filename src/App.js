@@ -14,7 +14,7 @@ const config = {
 
 function App() {
   const [input, setInput] = useState("");
-  // const [listOfFood, setListOfFood] = useState([]);
+  const [listOfFood, setListOfFood] = useState([]);
 
   const searchForFood = async () => {
     const corsApiUrl = "https://cors-anywhere.herokuapp.com/";
@@ -25,7 +25,8 @@ function App() {
     );
 
     const data = await response.json();
-    console.log(data);
+    // console.log(data.businesses);
+    setListOfFood(data.businesses);
   };
 
   const updateInput = (string) => {
@@ -49,7 +50,7 @@ function App() {
             <Roulette />
           </Route>
           <Route path="/eatWhere">
-            <Search updateInput={updateInput} />
+            <Search updateInput={updateInput} listOfFood={listOfFood} />
           </Route>
           <Route path="/eatThese">
             <FavouriteList />

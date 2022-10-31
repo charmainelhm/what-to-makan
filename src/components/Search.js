@@ -1,10 +1,10 @@
 import { useState } from "react";
+import Results from "./Results";
 
-export default function Search({ updateInput }) {
-  const [input, setInput] = useState();
+export default function Search({ updateInput, listOfFood }) {
+  const [input, setInput] = useState("");
 
   const handleChange = (e) => {
-    console.log(e.target.value);
     setInput(e.target.value);
   };
 
@@ -18,12 +18,14 @@ export default function Search({ updateInput }) {
       <p>This is the search section</p>
       <form onSubmit={handleSubmit}>
         <input
+          value={input}
           onChange={handleChange}
           type="text"
           placeholder="Enter food here"
         />
         <input className="ml-2 bg-sky-200" type="submit" value="Search" />
       </form>
+      <Results listOfFood={listOfFood} />
     </>
   );
 }
