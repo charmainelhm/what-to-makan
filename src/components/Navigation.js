@@ -2,10 +2,16 @@ import { Link } from "react-router-dom";
 
 export default function Navigation() {
   return (
-    <nav>
-      <Link to="/">Eat What</Link>
-      <Link to="/eatWhere">Eat Where</Link>
-      <Link to="/eatThese">Eat These</Link>
+    <nav className="flex space-x-4 justify-center">
+      <Link to="/" className="hover:underline">
+        Eat What
+      </Link>
+      <Link to="/eatWhere" className="hover:underline">
+        Eat Where
+      </Link>
+      <Link to="/eatThese" className="hover:underline">
+        Eat These
+      </Link>
     </nav>
   );
 }

@@ -8,7 +8,7 @@ import { Route, Switch } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <h1>What to Makan</h1>
+      <h1 className="text-lg font-bold">What to Makan</h1>
       <Navigation />
       <div>
         <Switch>
