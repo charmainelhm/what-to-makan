@@ -12,7 +12,8 @@ export default function Result({ resInfo }) {
         alt="Restaurant"
       />
       <h2>{resInfo.name}</h2>
-      <p>Price range: {resInfo.price}</p>
+      <p>Rating: {resInfo.rating}</p>
+      <p>Price range: {resInfo.price ? resInfo.price : "-"}</p>
       <p>{address}</p>
     </div>
   );
