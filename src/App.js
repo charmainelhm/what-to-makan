@@ -6,13 +6,38 @@ import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+const config = {
+  headers: {
+    Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+  },
+};
+
 function App() {
   const [input, setInput] = useState("");
   // const [listOfFood, setListOfFood] = useState([]);
 
+  const searchForFood = async () => {
+    const corsApiUrl = "https://cors-anywhere.herokuapp.com/";
+
+    const response = await fetch(
+      `${corsApiUrl}https://api.yelp.com/v3/businesses/search?location=sg&categories=food&term=${input}&limit=10`,
+      config
+    );
+
+    const data = await response.json();
+    console.log(data);
+  };
+
   const updateInput = (string) => {
     setInput(string);
   };
+
+  useEffect(() => {
+    if (input !== "") {
+      console.log("Retrieving food info...");
+      searchForFood();
+    }
+  }, [input]);
 
   return (
     <div className="App">
