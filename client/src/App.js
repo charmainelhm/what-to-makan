@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-lg font-bold">What to Makan</h1>
+      <h1 className="text-lg font-bold">What to Makan V1</h1>
       <Navigation />
       <div>
         <Switch>
