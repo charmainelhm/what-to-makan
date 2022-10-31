@@ -1,4 +1,4 @@
-export default function Result({ food, updateFavList }) {
+export default function FavItem({ food }) {
   const address = food.location.display_address.reduce(
     (finalStr, curStr) => (finalStr += `${curStr} `),
     ""
@@ -12,16 +12,8 @@ export default function Result({ food, updateFavList }) {
         alt="Restaurant"
       />
       <h2>{food.name}</h2>
-      <p>Rating: {food.rating}</p>
       <p>Price range: {food.price ? food.price : "-"}</p>
       <p>{address}</p>
-      <button
-        onClick={() => {
-          updateFavList(food);
-        }}
-      >
-        Add to Fav
-      </button>
     </div>
   );
 }

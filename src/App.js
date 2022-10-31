@@ -1,7 +1,7 @@
 import Navigation from "./components/Navigation";
 import Roulette from "./components/Roulette";
 import Search from "./components/Search";
-import FavouriteList from "./components/FavouriteList";
+import FavList from "./components/FavList";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -14,7 +14,8 @@ const config = {
 
 function App() {
   const [input, setInput] = useState("");
-  const [listOfFood, setListOfFood] = useState([]);
+  const [foodList, setFoodList] = useState([]);
+  const [favList, setFavList] = useState([]);
 
   const searchForFood = async () => {
     const corsApiUrl = "https://cors-anywhere.herokuapp.com/";
@@ -26,11 +27,15 @@ function App() {
 
     const data = await response.json();
     console.log(data.businesses);
-    setListOfFood(data.businesses);
+    setFoodList(data.businesses);
   };
 
   const updateInput = (string) => {
     setInput(string);
+  };
+
+  const updateFavList = (food) => {
+    setFavList([...favList, food]);
   };
 
   useEffect(() => {
@@ -50,10 +55,14 @@ function App() {
             <Roulette />
           </Route>
           <Route path="/eatWhere">
-            <Search updateInput={updateInput} listOfFood={listOfFood} />
+            <Search
+              updateInput={updateInput}
+              foodList={foodList}
+              updateFavList={updateFavList}
+            />
           </Route>
           <Route path="/eatThese">
-            <FavouriteList />
+            <FavList favList={favList} />
           </Route>
         </Switch>
       </div>

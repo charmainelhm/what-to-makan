@@ -1,8 +1,8 @@
 import Result from "./Result";
 
-export default function Results({ listOfFood }) {
-  const foodArr = listOfFood.map((restaurant, ind) => {
-    return <Result key={ind} resInfo={restaurant} />;
+export default function Results({ foodList, updateFavList }) {
+  const foodArr = foodList.map((food, ind) => {
+    return <Result key={ind} food={food} updateFavList={updateFavList} />;
   });
 
   return (

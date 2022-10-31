@@ -17,7 +17,8 @@ code {
 }
 
 @layer base {
-  input {
+  input,
+  button {
     @apply border-2 border-solid border-black rounded px-2;
   }
 
