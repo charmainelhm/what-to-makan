@@ -1,23 +1,17 @@
-import logo from "./logo.svg";
+import Navigation from "./components/Navigation";
+import Roulette from "./components/Roulette";
+import Search from "./components/Search";
+import FavouriteList from "./components/FavouriteList";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>What to Makan</h1>
+      <Navigation />
+      <Roulette />
+      <Search />
+      <FavouriteList />
     </div>
   );
 }
