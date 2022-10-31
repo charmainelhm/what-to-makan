@@ -6,7 +6,11 @@ export default function Result({ resInfo }) {
 
   return (
     <div>
-      <img src={resInfo.image_url} alt="Restaurant" />
+      <img
+        className="aspect-square object-cover"
+        src={resInfo.image_url}
+        alt="Restaurant"
+      />
       <h2>{resInfo.name}</h2>
       <p>Price range: {resInfo.price}</p>
       <p>{address}</p>

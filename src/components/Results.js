@@ -5,5 +5,9 @@ export default function Results({ listOfFood }) {
     return <Result key={ind} resInfo={restaurant} />;
   });
 
-  return <div>{foodArr.length === 0 ? "No results found" : foodArr}</div>;
+  return (
+    <div className="grid grid-cols-auto-fit gap-5">
+      {foodArr.length === 0 ? "No results found" : foodArr}
+    </div>
+  );
 }
