@@ -35,6 +35,7 @@
     margin-inline: auto;
     height: 350px;
     width: 350px;
+    transition: transform 2s ease-out;
   }
 
   .wheel div {
@@ -48,6 +49,7 @@
     align-items: center;
     justify-content: center;
     writing-mode: vertical-rl;
+    cursor: pointer;
   }
 
   .wheel div:nth-child(2n) {
@@ -90,5 +92,15 @@
     top: -5%;
     left: 50%;
     transform: translate(-50%);
+  }
+
+  .rotate {
+    animation: start-rotate 1s linear infinite;
+  }
+
+  @keyframes start-rotate {
+    100% {
+      transform: rotate(360deg);
+    }
   }
 }
