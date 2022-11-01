@@ -52,7 +52,7 @@ function App() {
       <div>
         <Switch>
           <Route exact path="/">
-            <Roulette />
+            <Roulette updateInput={updateInput} />
           </Route>
           <Route path="/eatWhere">
             <Search

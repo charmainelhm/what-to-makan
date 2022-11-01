@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 const wheelOptions = [
   { name: "Korean", number: "one", rotation: 0 },
@@ -9,9 +10,15 @@ const wheelOptions = [
   { name: "Japanese", number: "six", rotation: 300 },
 ];
 
-export default function Roulette() {
+export default function Roulette({ updateInput }) {
+  const history = useHistory();
   const [rotation, setRotation] = useState("0"); // prevent value from updating when other states updates reactDOM
   const [chosenOption, setChosenOption] = useState("");
+  const [isSpinning, setIsSpinning] = useState(true);
+
+  const spinningStyle = {
+    opacity: isSpinning ? "0" : "1",
+  };
 
   const wheelSectionArr = wheelOptions.map((option, ind) => {
     return (
@@ -27,14 +34,31 @@ export default function Roulette() {
     );
   });
 
+  const spinTheWheel = () => {
+    setIsSpinning(true);
+    const randomValue = Math.round(Math.random() * 720) + 360;
+    setRotation((prevRotation) => String(randomValue + prevRotation * 1));
+  };
+
   const determineChosenOption = () => {
     const position = 360 - (rotation % 360);
     console.log(position);
-    const chosenOption = wheelOptions.filter(
-      (option) =>
-        position <= option.rotation + 30 && position > option.rotation - 30
-    );
+    const chosenOption = wheelOptions.filter((option) => {
+      if (option.name !== "Korean") {
+        return (
+          position <= option.rotation + 30 && position > option.rotation - 30
+        );
+      } else {
+        return position <= option.rotation + 30 || position > 330;
+      }
+    });
     setChosenOption(chosenOption[0].name);
+    setIsSpinning(false);
+  };
+
+  const handleSearch = () => {
+    updateInput(chosenOption);
+    history.push("/eatWhere");
   };
 
   useEffect(() => {
@@ -46,11 +70,6 @@ export default function Roulette() {
 
     return () => clearTimeout(timer);
   }, [rotation]);
-
-  const spinTheWheel = () => {
-    const randomValue = Math.round(Math.random() * 720) + 360;
-    setRotation((prevRotation) => String(randomValue + prevRotation * 1));
-  };
 
   return (
     <>
@@ -65,9 +84,12 @@ export default function Roulette() {
         </div>
         <div className="wheel-stopper"></div>
       </div>
-      <p className={chosenOption === "" ? "opacity-0" : "opacity-100"}>
-        The wheel chooses {chosenOption}
-      </p>
+      <div style={spinningStyle}>
+        <p>The wheel chooses {chosenOption}!</p>
+        <button className="ml-4" onClick={handleSearch}>
+          Search Chosen Food
+        </button>
+      </div>
       <button className="mt-6" onClick={spinTheWheel}>
         Spin the Wheel
       </button>
