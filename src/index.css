@@ -56,22 +56,6 @@
     @apply bg-white;
   }
 
-  .section-two {
-    transform: rotate(60deg);
-  }
-  .section-three {
-    transform: rotate(120deg);
-  }
-  .section-four {
-    transform: rotate(180deg);
-  }
-  .section-five {
-    transform: rotate(240deg);
-  }
-  .section-six {
-    transform: rotate(300deg);
-  }
-
   .wheel-pin {
     @apply bg-yellow-400 rounded-full;
     height: 30px;
