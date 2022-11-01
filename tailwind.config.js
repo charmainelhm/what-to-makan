@@ -7,6 +7,13 @@ module.exports = {
         "auto-fit": "repeat(auto-fit, minmax(250px, 1fr))",
       },
     },
+    colors: {
+      white: "#ffffff",
+      black: "#000000",
+      "red-400": "#d95e51",
+      "yellow-200": "#fae896",
+      "yellow-400": "#e1c544",
+    },
   },
   plugins: [],
 };

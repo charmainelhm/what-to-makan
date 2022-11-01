@@ -2,27 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 @layer base {
-  input,
-  button {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  input {
     @apply border-2 border-solid border-black rounded px-2;
+  }
+
+  button {
+    @apply bg-red-400 rounded-full text-white px-4 py-2;
   }
 
   input[type="submit"] {
     @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .wheel-wrapper {
+    @apply mt-8;
+    position: relative;
+  }
+
+  .wheel {
+    @apply relative bg-yellow-200 rounded-full overflow-hidden border-4 border-solid border-yellow-200;
+    margin-inline: auto;
+    height: 350px;
+    width: 350px;
+  }
+
+  .wheel div {
+    height: 50%;
+    width: 200px;
+    clip-path: polygon(100% 0, 50% 100%, 0 0);
+    position: absolute;
+    transform-origin: bottom;
+    left: 21%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+  }
+
+  .wheel div:nth-child(2n) {
+    @apply bg-white;
+  }
+
+  .section-two {
+    transform: rotate(60deg);
+  }
+  .section-three {
+    transform: rotate(120deg);
+  }
+  .section-four {
+    transform: rotate(180deg);
+  }
+  .section-five {
+    transform: rotate(240deg);
+  }
+  .section-six {
+    transform: rotate(300deg);
+  }
+
+  .wheel-pin {
+    @apply bg-yellow-400 rounded-full;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .wheel-stopper {
+    @apply bg-red-400;
+    height: 50px;
+    width: 40px;
+    position: absolute;
+    clip-path: polygon(100% 0, 50% 100%, 0 0);
+    top: -5%;
+    left: 50%;
+    transform: translate(-50%);
   }
 }
