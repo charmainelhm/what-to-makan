@@ -48,6 +48,18 @@ function App() {
   return (
     <div className="App">
       <h1 className="text-lg font-bold">What to Makan V1</h1>
+      <p>
+        This is a demo version of the application which requires CORS to be
+        enabled to function properly. Please click{" "}
+        <a
+          style={{ color: "red" }}
+          href="https://cors-anywhere.herokuapp.com/corsdemo"
+          target="_blank"
+        >
+          here
+        </a>{" "}
+        to enable CORS!{" "}
+      </p>
       <Navigation />
       <div>
         <Switch>
