@@ -5,7 +5,7 @@ export default function FavList({ favList }) {
     return <FavItem key={ind} food={food} />;
   });
   return (
-    <div className="grid grid-cols-auto-fit gap-5">
+    <div className="grid grid-cols-auto-fill gap-5">
       {foodArr.length === 0 ? "No items here yet" : foodArr}
     </div>
   );
