@@ -9,6 +9,7 @@ module.exports = {
       },
     },
     colors: {
+      transparent: "transparent",
       white: "#ffffff",
       black: "#000000",
       "blue-900": "#102b56",
@@ -18,4 +19,9 @@ module.exports = {
     },
   },
   plugins: [],
+  varients: {
+    extend: {
+      display: ["group-hover"],
+    },
+  },
 };

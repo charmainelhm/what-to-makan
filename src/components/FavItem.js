@@ -6,11 +6,16 @@ export default function FavItem({ food }) {
 
   return (
     <div className="rounded-lg overflow-hidden shadow-lg">
-      <img
-        className="aspect-square object-cover"
-        src={food.image_url}
-        alt="Restaurant"
-      />
+      <div className="relative group bg-black">
+        <img
+          className="aspect-square object-cover group-hover:opacity-90"
+          src={food.image_url}
+          alt="Restaurant"
+        />
+        <button className="hidden absolute top-0 right-0 bg-transparent text-lg group-hover:block">
+          X
+        </button>
+      </div>
       <div className="p-5">
         <h2 className="text-lg font-bold">
           <a className="hover:underline" href={food.url} target="_blank">
