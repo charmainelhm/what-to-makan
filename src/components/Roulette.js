@@ -14,9 +14,6 @@ import WheelOption from "./WheelOption";
 export default function Roulette({ updateInput }) {
   const history = useHistory();
 
-  const [rotation, setRotation] = useState("0");
-  const [chosenOption, setChosenOption] = useState("");
-  const [isSpinning, setIsSpinning] = useState(true);
   const [wheelOptions, setWheelOptions] = useState([
     { name: "Korean", number: "one", rotation: 0 },
     { name: "Western", number: "two", rotation: 60 },
@@ -25,6 +22,9 @@ export default function Roulette({ updateInput }) {
     { name: "Indian", number: "five", rotation: 240 },
     { name: "Japanese", number: "six", rotation: 300 },
   ]);
+  const [rotation, setRotation] = useState(0);
+  const [chosenOption, setChosenOption] = useState("");
+  const [isSpinning, setIsSpinning] = useState(true);
 
   const handleOptionNameChange = (index, newOptionName) => {
     const optionArr = [...wheelOptions];
@@ -45,14 +45,14 @@ export default function Roulette({ updateInput }) {
   const spinTheWheel = () => {
     setIsSpinning(true);
     const randomValue = Math.round(Math.random() * 720) + 360;
-    setRotation((prevRotation) => String(randomValue + prevRotation * 1));
+    setRotation((prevRotation) => randomValue + prevRotation);
   };
 
   const determineChosenOption = () => {
     const position = 360 - (rotation % 360);
     console.log(position);
     const chosenOption = wheelOptions.filter((option) => {
-      if (option.num !== "one") {
+      if (option.rotation !== 0) {
         return (
           position <= option.rotation + 30 && position > option.rotation - 30
         );
