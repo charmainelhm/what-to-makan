@@ -18,10 +18,10 @@ function App() {
   const [favList, setFavList] = useState([]);
 
   const searchForFood = async () => {
-    // const corsApiUrl = "https://cors-anywhere.herokuapp.com/";
+    const corsApiUrl = "https://cors-anywhere.herokuapp.com/";
 
     const response = await fetch(
-      `/v3/businesses/search?location=sg&categories=food&term=${input}&limit=10`,
+      `${corsApiUrl}https://api.yelp.com/v3/businesses/search?location=sg&categories=food&term=${input}&limit=10`,
       config
     );
 
