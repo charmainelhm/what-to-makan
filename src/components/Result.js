@@ -12,12 +12,14 @@ export default function Result({ food, updateFavList }) {
         alt="Restaurant"
       />
       <div className="grow text-start self-center">
-        <h2>
-          {food.name}{" "}
+        <h2 className="text-lg font-bold">
+          <a className="hover:underline" href={food.url} target="_blank">
+            {food.name}
+          </a>{" "}
           <span
             className={`inline-block ${
               food.is_closed ? "bg-red-400" : "bg-blue-900"
-            } text-xs text-white font-semibold uppercase px-3 py-1 rounded-full`}
+            } text-xs text-white font-semibold uppercase align-top px-3 py-1 rounded-full`}
           >
             {food.is_closed ? "Closed" : "Open"}
           </span>
