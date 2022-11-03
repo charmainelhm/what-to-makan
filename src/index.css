@@ -48,8 +48,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    writing-mode: vertical-rl;
+    /* writing-mode: vertical-rl; */
     cursor: pointer;
+  }
+
+  .option-input {
+    transform: rotate(90deg);
+    text-align: center;
+    background-color: transparent;
+    border: none;
   }
 
   .wheel div:nth-child(2n) {

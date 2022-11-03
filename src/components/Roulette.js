@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import WheelOption from "./WheelOption";
 
 const wheelOptions = [
   { name: "Korean", number: "one", rotation: 0 },
@@ -21,17 +22,7 @@ export default function Roulette({ updateInput }) {
   };
 
   const wheelSectionArr = wheelOptions.map((option, ind) => {
-    return (
-      <div
-        className={`section-${option.number}`}
-        style={{ transform: `rotate(${option.rotation}deg)` }}
-        key={ind}
-        contentEditable="true"
-        spellCheck="false"
-      >
-        {option.name}
-      </div>
-    );
+    return <WheelOption option={option} ind={ind} />;
   });
 
   const spinTheWheel = () => {
@@ -44,7 +35,7 @@ export default function Roulette({ updateInput }) {
     const position = 360 - (rotation % 360);
     console.log(position);
     const chosenOption = wheelOptions.filter((option) => {
-      if (option.name !== "Korean") {
+      if (option.num !== "one") {
         return (
           position <= option.rotation + 30 && position > option.rotation - 30
         );
