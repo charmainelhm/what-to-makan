@@ -7,7 +7,9 @@ import { Route, Switch } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const config = {
+  mode: "cors",
   headers: {
+    "Access-Control-Allow-Origin": "*",
     Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
   },
 };
@@ -18,10 +20,10 @@ function App() {
   const [favList, setFavList] = useState([]);
 
   const searchForFood = async () => {
-    const corsApiUrl = "https://cors-anywhere.herokuapp.com/";
+    // const corsApiUrl = "https://cors-anywhere.herokuapp.com/";
 
     const response = await fetch(
-      `${corsApiUrl}https://api.yelp.com/v3/businesses/search?location=sg&categories=food&term=${input}&limit=10`,
+      `https://api.yelp.com/v3/businesses/search?location=sg&categories=food&term=${input}&limit=10`,
       config
     );
 
