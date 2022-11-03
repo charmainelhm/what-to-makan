@@ -55,6 +55,7 @@ function App() {
           style={{ color: "red" }}
           href="https://cors-anywhere.herokuapp.com/corsdemo"
           target="_blank"
+          rel="noreferrer"
         >
           here
         </a>{" "}

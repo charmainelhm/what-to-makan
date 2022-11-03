@@ -1,5 +1,13 @@
-export default function WheelOption({ option, ind }) {
-  const handleChange = () => {};
+import { useState } from "react";
+
+export default function WheelOption({ option, ind, handleOptionNameChange }) {
+  const [optionName, setOptionName] = useState(option.name);
+
+  const handleChange = (e) => {
+    const newValue = e.target.value;
+    setOptionName(newValue);
+    handleOptionNameChange(ind, newValue);
+  };
 
   return (
     <div
@@ -10,7 +18,7 @@ export default function WheelOption({ option, ind }) {
       <input
         className="option-input"
         type="text"
-        value={option.name}
+        value={optionName}
         onChange={handleChange}
       />
     </div>

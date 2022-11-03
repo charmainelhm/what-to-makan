@@ -2,27 +2,44 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import WheelOption from "./WheelOption";
 
-const wheelOptions = [
-  { name: "Korean", number: "one", rotation: 0 },
-  { name: "Western", number: "two", rotation: 60 },
-  { name: "Chinese", number: "three", rotation: 120 },
-  { name: "Malay", number: "four", rotation: 180 },
-  { name: "Indian", number: "five", rotation: 240 },
-  { name: "Japanese", number: "six", rotation: 300 },
-];
+// const wheelOptions = [
+// { name: "Korean", number: "one", rotation: 0 },
+// { name: "Western", number: "two", rotation: 60 },
+// { name: "Chinese", number: "three", rotation: 120 },
+// { name: "Malay", number: "four", rotation: 180 },
+// { name: "Indian", number: "five", rotation: 240 },
+// { name: "Japanese", number: "six", rotation: 300 },
+// ];
 
 export default function Roulette({ updateInput }) {
   const history = useHistory();
-  const [rotation, setRotation] = useState("0"); // prevent value from updating when other states updates reactDOM
+
+  const [rotation, setRotation] = useState("0");
   const [chosenOption, setChosenOption] = useState("");
   const [isSpinning, setIsSpinning] = useState(true);
+  const [wheelOptions, setWheelOptions] = useState([
+    { name: "Korean", number: "one", rotation: 0 },
+    { name: "Western", number: "two", rotation: 60 },
+    { name: "Chinese", number: "three", rotation: 120 },
+    { name: "Malay", number: "four", rotation: 180 },
+    { name: "Indian", number: "five", rotation: 240 },
+    { name: "Japanese", number: "six", rotation: 300 },
+  ]);
 
-  const spinningStyle = {
-    opacity: isSpinning ? "0" : "1",
+  const handleOptionNameChange = (index, newOptionName) => {
+    const optionArr = [...wheelOptions];
+    optionArr[index].name = newOptionName;
+    setWheelOptions(optionArr);
   };
 
   const wheelSectionArr = wheelOptions.map((option, ind) => {
-    return <WheelOption option={option} ind={ind} />;
+    return (
+      <WheelOption
+        option={option}
+        ind={ind}
+        handleOptionNameChange={handleOptionNameChange}
+      />
+    );
   });
 
   const spinTheWheel = () => {
@@ -54,7 +71,7 @@ export default function Roulette({ updateInput }) {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (rotation != 0) {
+      if (rotation !== 0) {
         determineChosenOption();
       }
     }, 2000);
@@ -75,7 +92,7 @@ export default function Roulette({ updateInput }) {
         </div>
         <div className="wheel-stopper"></div>
       </div>
-      <div style={spinningStyle}>
+      <div style={{ opacity: isSpinning ? "0" : "1" }}>
         <p>The wheel chooses {chosenOption}!</p>
         <button className="ml-4" onClick={handleSearch}>
           Search Chosen Food

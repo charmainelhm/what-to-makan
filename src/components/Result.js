@@ -13,7 +13,12 @@ export default function Result({ food, updateFavList }) {
       />
       <div className="grow text-start self-center">
         <h2 className="text-lg font-bold">
-          <a className="hover:underline" href={food.url} target="_blank">
+          <a
+            className="hover:underline"
+            href={food.url}
+            target="_blank"
+            rel="noreferrer"
+          >
             {food.name}
           </a>{" "}
           <span

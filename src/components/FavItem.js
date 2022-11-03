@@ -18,7 +18,12 @@ export default function FavItem({ food }) {
       </div>
       <div className="p-5">
         <h2 className="text-lg font-bold">
-          <a className="hover:underline" href={food.url} target="_blank">
+          <a
+            className="hover:underline"
+            href={food.url}
+            target="_blank"
+            rel="noreferrer"
+          >
             {food.name}
           </a>{" "}
           <span
