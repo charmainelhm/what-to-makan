@@ -84,7 +84,7 @@ export default function Result({
       </div>
       <button
         title="Save item"
-        className="self-start bg-transparent text-yellow-400 text-[1.8rem] hover:scale-125"
+        className="self-start p-4 text-yellow-400 text-[1.8rem] hover:scale-125"
         onClick={handleClick}
       >
         {favourite ? <IoStar /> : <IoStarOutline />}

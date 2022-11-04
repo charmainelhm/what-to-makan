@@ -30,7 +30,7 @@ export default function Search({
           placeholder="Enter food here"
         />
         <input
-          className="btn btn-solid border-red-400 ml-2 hover:btn-outline"
+          className="btn btn-solid border-red-400 ml-4 hover:btn-outline"
           type="submit"
           value="Search"
         />

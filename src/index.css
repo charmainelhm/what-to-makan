@@ -12,11 +12,19 @@
   }
 
   input {
-    @apply border-2 border-solid border-black rounded px-2;
+    @apply border-b-2 border-solid border-black;
   }
 
   input[type="submit"] {
     @apply cursor-pointer;
+  }
+
+  input::placeholder {
+    @apply text-blue-900;
+  }
+
+  input:focus {
+    @apply outline-transparent;
   }
 }
 
