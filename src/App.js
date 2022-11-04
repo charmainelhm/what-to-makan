@@ -43,6 +43,19 @@ function App() {
     setFavList(updatedList);
   };
 
+  // Retrieve fav listing from local storage
+  useEffect(() => {
+    const storedFavList = JSON.parse(localStorage.getItem("favList"));
+    if (storedFavList) {
+      setFavList(storedFavList);
+    }
+  }, []);
+
+  // Save fav listing to local storage
+  useEffect(() => {
+    localStorage.setItem("favList", JSON.stringify(favList));
+  }, [favList]);
+
   useEffect(() => {
     if (input !== "") {
       console.log("Retrieving food info...");
