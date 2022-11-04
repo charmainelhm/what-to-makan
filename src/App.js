@@ -30,6 +30,10 @@ function App() {
     setFoodList(data.businesses);
   };
 
+  const isFavourite = (foodId) => {
+    return favList.filter((food) => food.id === foodId).length > 0;
+  };
+
   const updateInput = (string) => {
     setInput(string);
   };
@@ -89,7 +93,9 @@ function App() {
             <Search
               updateInput={updateInput}
               foodList={foodList}
+              removeFromFavList={removeFromFavList}
               addToFavList={addToFavList}
+              isFavourite={isFavourite}
             />
           </Route>
           <Route path="/eatThese">

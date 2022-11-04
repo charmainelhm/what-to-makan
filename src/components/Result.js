@@ -5,6 +5,8 @@ import {
   IoStar,
 } from "react-icons/io5";
 
+import { useState, useEffect } from "react";
+
 const generateRating = (rating) => {
   const starsArr = [];
   for (let i = 0; i < Math.trunc(rating); i++) {
@@ -22,7 +24,29 @@ const generateRating = (rating) => {
   return starsArr;
 };
 
-export default function Result({ food, addToFavList }) {
+export default function Result({
+  food,
+  addToFavList,
+  removeFromFavList,
+  isFavourite,
+}) {
+  const [favourite, setFavourite] = useState(false);
+
+  const handleClick = () => {
+    if (!favourite) {
+      addToFavList(food);
+      setFavourite(true);
+    } else {
+      removeFromFavList(food.id);
+      setFavourite(false);
+    }
+  };
+
+  useEffect(() => {
+    let boolean = isFavourite(food.id);
+    setFavourite(boolean);
+  }, []);
+
   const address = food.location.display_address.reduce(
     (finalStr, curStr) => (finalStr += `${curStr} `),
     ""
@@ -58,13 +82,8 @@ export default function Result({ food, addToFavList }) {
           <IoLocationSharp className="inline-block" /> {address}
         </p>
       </div>
-      <button
-        className="self-start"
-        onClick={() => {
-          addToFavList(food);
-        }}
-      >
-        Add to Fav
+      <button className="self-start" onClick={handleClick}>
+        {favourite ? <IoStar /> : <IoStarOutline />}
       </button>
     </div>
   );

@@ -1,8 +1,21 @@
 import Result from "./Result";
 
-export default function Results({ foodList, addToFavList }) {
+export default function Results({
+  foodList,
+  addToFavList,
+  removeFromFavList,
+  isFavourite,
+}) {
   const foodArr = foodList.map((food, ind) => {
-    return <Result key={ind} food={food} addToFavList={addToFavList} />;
+    return (
+      <Result
+        key={ind}
+        food={food}
+        removeFromFavList={removeFromFavList}
+        addToFavList={addToFavList}
+        isFavourite={isFavourite}
+      />
+    );
   });
 
   return (
