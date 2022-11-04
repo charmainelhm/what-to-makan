@@ -1,8 +1,8 @@
 import Result from "./Result";
 
-export default function Results({ foodList, updateFavList }) {
+export default function Results({ foodList, addToFavList }) {
   const foodArr = foodList.map((food, ind) => {
-    return <Result key={ind} food={food} updateFavList={updateFavList} />;
+    return <Result key={ind} food={food} addToFavList={addToFavList} />;
   });
 
   return (

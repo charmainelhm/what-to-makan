@@ -22,7 +22,7 @@ const generateRating = (rating) => {
   return starsArr;
 };
 
-export default function Result({ food, updateFavList }) {
+export default function Result({ food, addToFavList }) {
   const address = food.location.display_address.reduce(
     (finalStr, curStr) => (finalStr += `${curStr} `),
     ""
@@ -61,7 +61,7 @@ export default function Result({ food, updateFavList }) {
       <button
         className="self-start"
         onClick={() => {
-          updateFavList(food);
+          addToFavList(food);
         }}
       >
         Add to Fav

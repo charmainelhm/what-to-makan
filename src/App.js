@@ -34,8 +34,13 @@ function App() {
     setInput(string);
   };
 
-  const updateFavList = (food) => {
+  const addToFavList = (food) => {
     setFavList([...favList, food]);
+  };
+
+  const removeFromFavList = (foodId) => {
+    const updatedList = favList.filter((food) => food.id !== foodId);
+    setFavList(updatedList);
   };
 
   useEffect(() => {
@@ -71,11 +76,11 @@ function App() {
             <Search
               updateInput={updateInput}
               foodList={foodList}
-              updateFavList={updateFavList}
+              addToFavList={addToFavList}
             />
           </Route>
           <Route path="/eatThese">
-            <FavList favList={favList} />
+            <FavList favList={favList} removeFromFavList={removeFromFavList} />
           </Route>
         </Switch>
       </div>

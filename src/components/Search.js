@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Results from "./Results";
 
-export default function Search({ updateInput, foodList, updateFavList }) {
+export default function Search({ updateInput, foodList, addToFavList }) {
   const [input, setInput] = useState("");
 
   const handleChange = (e) => {
@@ -25,7 +25,7 @@ export default function Search({ updateInput, foodList, updateFavList }) {
         />
         <input className="ml-2 bg-sky-200" type="submit" value="Search" />
       </form>
-      <Results foodList={foodList} updateFavList={updateFavList} />
+      <Results foodList={foodList} addToFavList={addToFavList} />
     </>
   );
 }

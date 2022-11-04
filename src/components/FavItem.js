@@ -1,6 +1,6 @@
 import { IoLocationSharp, IoClose } from "react-icons/io5";
 
-export default function FavItem({ food }) {
+export default function FavItem({ food, removeFromFavList }) {
   const address = food.location.display_address.reduce(
     (finalStr, curStr) => (finalStr += `${curStr} `),
     ""
@@ -17,6 +17,7 @@ export default function FavItem({ food }) {
         <button
           title="Remove item"
           className="hidden absolute top-0 right-0 bg-transparent group-hover:block"
+          onClick={() => removeFromFavList(food.id)}
         >
           <IoClose className="text-2xl" />
         </button>
