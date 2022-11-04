@@ -29,7 +29,11 @@ export default function Search({
           type="text"
           placeholder="Enter food here"
         />
-        <input className="ml-2 bg-sky-200" type="submit" value="Search" />
+        <input
+          className="btn btn-solid border-red-400 ml-2 hover:btn-outline"
+          type="submit"
+          value="Search"
+        />
       </form>
       <Results
         foodList={foodList}

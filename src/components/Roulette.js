@@ -92,15 +92,24 @@ export default function Roulette({ updateInput }) {
         </div>
         <div className="wheel-stopper"></div>
       </div>
-      <div style={{ opacity: isSpinning ? "0" : "1" }}>
+      <button
+        className="mt-2 btn btn-solid hover:btn-outline"
+        onClick={spinTheWheel}
+      >
+        Spin the Wheel
+      </button>
+      <div
+        className="flex justify-center items-center mt-6"
+        style={{ opacity: isSpinning ? "0" : "1" }}
+      >
         <p>The wheel chooses {chosenOption}!</p>
-        <button className="ml-4" onClick={handleSearch}>
+        <button
+          className="ml-4 btn btn-outline hover:btn-solid"
+          onClick={handleSearch}
+        >
           Search Chosen Food
         </button>
       </div>
-      <button className="mt-6" onClick={spinTheWheel}>
-        Spin the Wheel
-      </button>
     </>
   );
 }

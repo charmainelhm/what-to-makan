@@ -10,13 +10,13 @@ export default function FavItem({ food, removeFromFavList }) {
     <div className="rounded-lg overflow-hidden shadow-lg">
       <div className="relative group bg-black">
         <img
-          className="aspect-square object-cover group-hover:opacity-90"
+          className="aspect-square object-cover group-hover:opacity-80"
           src={food.image_url}
           alt="Restaurant"
         />
         <button
           title="Remove item"
-          className="hidden absolute top-0 right-0 bg-transparent group-hover:block"
+          className="hidden absolute top-0 right-0 bg-transparent text-white p-3 group-hover:block"
           onClick={() => removeFromFavList(food.id)}
         >
           <IoClose className="text-2xl" />
