@@ -27,14 +27,14 @@ export default function FavItem({ food }) {
             {food.name}
           </a>{" "}
           <span
-            className={`inline-block ${
-              food.is_closed ? "bg-red-400" : "bg-blue-900"
-            } text-xs text-white font-semibold uppercase align-top px-3 py-1 rounded-full`}
+            className={`${
+              food.price ? "inline-block" : "hidden"
+            } bg-red-400 text-xs text-white font-semibold uppercase align-top px-2 py-1 rounded-full`}
           >
-            {food.is_closed ? "Closed" : "Open"}
+            {food.price ? food.price : ""}
           </span>
         </h2>
-        <p>Price range: {food.price ? food.price : "-"}</p>
+        {/* <p>Price range: {food.price ? food.price : "-"}</p> */}
         <p>{address}</p>
       </div>
     </div>

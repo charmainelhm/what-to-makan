@@ -21,7 +21,7 @@ function App() {
     const corsApiUrl = "https://cors-anywhere.herokuapp.com/";
 
     const response = await fetch(
-      `${corsApiUrl}https://api.yelp.com/v3/businesses/search?location=sg&categories=food&term=${input}&limit=10`,
+      `${corsApiUrl}https://api.yelp.com/v3/businesses/search?location=singapore&categories=food&term=${input}&limit=15&sort_by=rating`,
       config
     );
 
