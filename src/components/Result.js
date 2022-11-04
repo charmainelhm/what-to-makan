@@ -1,3 +1,27 @@
+import {
+  IoLocationSharp,
+  IoStarHalf,
+  IoStarOutline,
+  IoStar,
+} from "react-icons/io5";
+
+const generateRating = (rating) => {
+  const starsArr = [];
+  for (let i = 0; i < Math.trunc(rating); i++) {
+    starsArr.push(<IoStar />);
+  }
+  if (!Number.isInteger(rating)) {
+    starsArr.push(<IoStarHalf />);
+  }
+  if (starsArr.length !== 5) {
+    for (let i = 0; i < 5 - starsArr.length; i++) {
+      starsArr.push(<IoStarOutline />);
+    }
+  }
+
+  return starsArr;
+};
+
 export default function Result({ food, updateFavList }) {
   const address = food.location.display_address.reduce(
     (finalStr, curStr) => (finalStr += `${curStr} `),
@@ -11,7 +35,7 @@ export default function Result({ food, updateFavList }) {
         src={food.image_url}
         alt="Restaurant"
       />
-      <div className="grow text-start self-center">
+      <div className="grow text-start self-center space-y-1">
         <h2 className="text-lg font-bold">
           <a
             className="hover:underline"
@@ -29,9 +53,10 @@ export default function Result({ food, updateFavList }) {
             {food.price ? food.price : ""}
           </span>
         </h2>
-        <p>Rating: {food.rating}</p>
-        {/* <p>Price range: {food.price ? food.price : "-"}</p> */}
-        <p>{address}</p>
+        <p className="flex">{generateRating(food.rating)}</p>
+        <p>
+          <IoLocationSharp className="inline-block" /> {address}
+        </p>
       </div>
       <button
         className="self-start"

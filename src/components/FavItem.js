@@ -1,3 +1,5 @@
+import { IoLocationSharp } from "react-icons/io5";
+
 export default function FavItem({ food }) {
   const address = food.location.display_address.reduce(
     (finalStr, curStr) => (finalStr += `${curStr} `),
@@ -35,7 +37,10 @@ export default function FavItem({ food }) {
           </span>
         </h2>
         {/* <p>Price range: {food.price ? food.price : "-"}</p> */}
-        <p>{address}</p>
+        <p>
+          <IoLocationSharp className="inline-block" />
+          {address}
+        </p>
       </div>
     </div>
   );
