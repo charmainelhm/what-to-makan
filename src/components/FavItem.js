@@ -1,4 +1,4 @@
-import { IoLocationSharp } from "react-icons/io5";
+import { IoLocationSharp, IoClose } from "react-icons/io5";
 
 export default function FavItem({ food }) {
   const address = food.location.display_address.reduce(
@@ -14,8 +14,11 @@ export default function FavItem({ food }) {
           src={food.image_url}
           alt="Restaurant"
         />
-        <button className="hidden absolute top-0 right-0 bg-transparent text-lg group-hover:block">
-          X
+        <button
+          title="Remove item"
+          className="hidden absolute top-0 right-0 bg-transparent group-hover:block"
+        >
+          <IoClose className="text-2xl" />
         </button>
       </div>
       <div className="p-5">
