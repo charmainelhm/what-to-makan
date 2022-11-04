@@ -82,7 +82,11 @@ export default function Result({
           <IoLocationSharp className="inline-block" /> {address}
         </p>
       </div>
-      <button className="self-start" onClick={handleClick}>
+      <button
+        title="Save item"
+        className="self-start bg-transparent text-yellow-400 text-[1.8rem] hover:scale-125"
+        onClick={handleClick}
+      >
         {favourite ? <IoStar /> : <IoStarOutline />}
       </button>
     </div>
