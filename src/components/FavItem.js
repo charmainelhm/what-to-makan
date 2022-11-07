@@ -7,7 +7,7 @@ export default function FavItem({ food, removeFromFavList }) {
   );
 
   return (
-    <div className="rounded-lg overflow-hidden shadow-lg">
+    <div className="card">
       <div className="relative group bg-black">
         <img
           className="aspect-square object-cover group-hover:opacity-80"

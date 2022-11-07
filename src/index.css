@@ -13,6 +13,10 @@
     box-sizing: border-box;
   }
 
+  body {
+    @apply bg-yellow-100;
+  }
+
   h1,
   h2 {
     @apply font-bold;
@@ -31,9 +35,9 @@
     @apply text-lg;
   }
 
-  input {
+  /* input {
     @apply border-b-2 border-solid border-black;
-  }
+  } */
 
   input[type="submit"] {
     @apply cursor-pointer;
@@ -58,7 +62,7 @@
   }
 
   .btn-outline {
-    @apply bg-white text-red-400;
+    @apply bg-transparent text-red-400;
   }
 
   .sidebar {
@@ -74,8 +78,11 @@
   }
 
   .content-container {
-    @apply text-center;
+    @apply text-center py-6 flex flex-col;
     margin-left: min(25%, 320px);
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
   }
 
   .wheel-wrapper {
@@ -138,6 +145,18 @@
     top: -5%;
     left: 50%;
     transform: translate(-50%);
+  }
+
+  .card {
+    @apply rounded-lg overflow-hidden shadow-lg bg-white;
+  }
+
+  .search-bar {
+    @apply w-2/5 mx-auto rounded-full overflow-hidden border-2 border-gray-300 flex;
+  }
+
+  .search-bar > * {
+    @apply py-3 px-4;
   }
 
   .rotate {

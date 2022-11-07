@@ -51,7 +51,7 @@ export default function Result({ food }) {
   );
 
   return (
-    <div className="flex gap-x-4 rounded-lg overflow-hidden shadow-lg">
+    <div className="card flex gap-x-4">
       <img
         className="aspect-square object-cover w-1/5"
         src={food.image_url}

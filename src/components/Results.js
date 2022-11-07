@@ -10,7 +10,7 @@ export default function Results() {
   });
 
   return (
-    <div className="max-w-screen-lg mx-auto space-y-3">
+    <div className="max-w-screen-md mx-auto space-y-5">
       {foodArr.length === 0 ? "No results found" : foodArr}
     </div>
   );

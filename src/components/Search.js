@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Results from "./Results";
+import { IoSearch } from "react-icons/io5";
 
 export default function Search({ updateInput }) {
   const [input, setInput] = useState("");
@@ -15,19 +16,21 @@ export default function Search({ updateInput }) {
   };
   return (
     <>
-      <h3>This is the search section</h3>
-      <form onSubmit={handleSubmit}>
+      {/* <h3>This is the search section</h3> */}
+      <form onSubmit={handleSubmit} className="search-bar mb-4">
         <input
+          className="grow py-3 px-4"
           value={input}
           onChange={handleChange}
           type="text"
           placeholder="Enter food here"
         />
-        <input
-          className="btn btn-solid border-red-400 ml-4 hover:btn-outline"
+        <button
           type="submit"
-          value="Search"
-        />
+          className="border-l-2 border-gray-300 hover:bg-yellow-200"
+        >
+          <IoSearch className="text-lg" />
+        </button>
       </form>
       <Results />
     </>
