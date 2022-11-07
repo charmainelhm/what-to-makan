@@ -41,6 +41,23 @@
     @apply bg-white text-red-400;
   }
 
+  .sidebar {
+    @apply bg-blue-900 text-white fixed z-10 h-full w-1/4 max-w-xs overflow-hidden rounded-r-lg flex flex-col;
+  }
+
+  .nav-item {
+    @apply px-3 py-4;
+  }
+
+  .nav-item:hover {
+    @apply bg-blue-1000 scale-105;
+  }
+
+  .content-container {
+    @apply text-center;
+    margin-left: min(25%, 320px);
+  }
+
   .wheel-wrapper {
     @apply mt-8;
     position: relative;

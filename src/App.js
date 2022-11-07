@@ -58,22 +58,26 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-lg font-bold">What to Makan V1</h1>
-      <p>
-        This is a demo version of the application which requires CORS to be
-        enabled to function properly. Please click{" "}
-        <a
-          style={{ color: "red" }}
-          href="https://cors-anywhere.herokuapp.com/corsdemo"
-          target="_blank"
-          rel="noreferrer"
-        >
-          here
-        </a>{" "}
-        to enable CORS!{" "}
-      </p>
-      <Navigation />
-      <div>
+      <div className="sidebar">
+        <h1 className="text-lg font-bold text-center py-4 bg-blue-1000">
+          What to Makan
+        </h1>
+        <Navigation />
+        <p className="mt-auto p-4">
+          This is a demo version of the application which requires CORS to be
+          enabled to function properly. Please click{" "}
+          <a
+            className="text-yellow-400"
+            href="https://cors-anywhere.herokuapp.com/corsdemo"
+            target="_blank"
+            rel="noreferrer"
+          >
+            here
+          </a>{" "}
+          to enable CORS!{" "}
+        </p>
+      </div>
+      <div className="content-container">
         <ListsContext.Provider value={{ foodList, favList, setFavList }}>
           <Switch>
             <Route exact path="/">
