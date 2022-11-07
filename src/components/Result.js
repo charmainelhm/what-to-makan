@@ -45,7 +45,7 @@ export default function Result({
   useEffect(() => {
     let boolean = isFavourite(food.id);
     setFavourite(boolean);
-  }, []);
+  }, [food]);
 
   const address = food.location.display_address.reduce(
     (finalStr, curStr) => (finalStr += `${curStr} `),
