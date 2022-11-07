@@ -8,8 +8,9 @@ module.exports = {
         "auto-fill": "repeat(auto-fill, minmax(250px, 1fr))",
       },
       colors: {
-        "blue-900": "#102b56",
-        "blue-1000": "#0a2145",
+        "blue-800": "#102b56",
+        "blue-900": "#0e2346",
+        "blue-1000": "#0a1a33",
         "red-400": "#d95e51",
         "yellow-100": "#f6f6f3",
         "yellow-200": "#fae896",
