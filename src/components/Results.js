@@ -1,21 +1,12 @@
 import Result from "./Result";
+import { useContext } from "react";
+import { ListsContext } from "../App";
 
-export default function Results({
-  foodList,
-  addToFavList,
-  removeFromFavList,
-  isFavourite,
-}) {
+export default function Results() {
+  const { foodList } = useContext(ListsContext);
+
   const foodArr = foodList.map((food, ind) => {
-    return (
-      <Result
-        key={ind}
-        food={food}
-        removeFromFavList={removeFromFavList}
-        addToFavList={addToFavList}
-        isFavourite={isFavourite}
-      />
-    );
+    return <Result key={ind} food={food} />;
   });
 
   return (

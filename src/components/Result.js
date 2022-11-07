@@ -5,7 +5,8 @@ import {
   IoStar,
 } from "react-icons/io5";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { ListsContext } from "../App";
 
 const generateRating = (rating) => {
   const starsArr = [];
@@ -24,26 +25,23 @@ const generateRating = (rating) => {
   return starsArr;
 };
 
-export default function Result({
-  food,
-  addToFavList,
-  removeFromFavList,
-  isFavourite,
-}) {
+export default function Result({ food }) {
+  const { favList, setFavList } = useContext(ListsContext);
   const [favourite, setFavourite] = useState(false);
 
   const handleClick = () => {
     if (!favourite) {
-      addToFavList(food);
+      setFavList([...favList, food]);
       setFavourite(true);
     } else {
-      removeFromFavList(food.id);
+      const updatedList = favList.filter((item) => item.id !== food.id);
+      setFavList(updatedList);
       setFavourite(false);
     }
   };
 
   useEffect(() => {
-    let boolean = isFavourite(food.id);
+    let boolean = favList.filter((item) => item.id === food.id).length > 0;
     setFavourite(boolean);
   }, [food]);
 

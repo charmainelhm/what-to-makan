@@ -4,13 +4,15 @@ import Search from "./components/Search";
 import FavList from "./components/FavList";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const config = {
   headers: {
     Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
   },
 };
+
+export const ListsContext = React.createContext();
 
 function App() {
   const [input, setInput] = useState("");
@@ -30,21 +32,8 @@ function App() {
     setFoodList(data.businesses);
   };
 
-  const isFavourite = (foodId) => {
-    return favList.filter((food) => food.id === foodId).length > 0;
-  };
-
   const updateInput = (string) => {
     setInput(string);
-  };
-
-  const addToFavList = (food) => {
-    setFavList([...favList, food]);
-  };
-
-  const removeFromFavList = (foodId) => {
-    const updatedList = favList.filter((food) => food.id !== foodId);
-    setFavList(updatedList);
   };
 
   // Retrieve fav listing from local storage
@@ -85,23 +74,19 @@ function App() {
       </p>
       <Navigation />
       <div>
-        <Switch>
-          <Route exact path="/">
-            <Roulette updateInput={updateInput} />
-          </Route>
-          <Route path="/eatWhere">
-            <Search
-              updateInput={updateInput}
-              foodList={foodList}
-              removeFromFavList={removeFromFavList}
-              addToFavList={addToFavList}
-              isFavourite={isFavourite}
-            />
-          </Route>
-          <Route path="/eatThese">
-            <FavList favList={favList} removeFromFavList={removeFromFavList} />
-          </Route>
-        </Switch>
+        <ListsContext.Provider value={{ foodList, favList, setFavList }}>
+          <Switch>
+            <Route exact path="/">
+              <Roulette updateInput={updateInput} />
+            </Route>
+            <Route path="/eatWhere">
+              <Search updateInput={updateInput} />
+            </Route>
+            <Route path="/eatThese">
+              <FavList />
+            </Route>
+          </Switch>
+        </ListsContext.Provider>
       </div>
     </div>
   );
