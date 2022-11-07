@@ -81,7 +81,7 @@ export default function Roulette({ updateInput }) {
 
   return (
     <>
-      <p>Can't decide what to eat? Let the wheel decide for you!</p>
+      <h3>Can't decide what to eat? Let the wheel decide for you!</h3>
       <div className="wheel-wrapper">
         <div
           className="wheel mb-4"

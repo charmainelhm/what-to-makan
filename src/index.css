@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,6 +11,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  h1,
+  h2 {
+    @apply font-bold;
+    font-family: "Gaegu", cursive;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-lg;
   }
 
   input {
@@ -86,6 +106,8 @@
   }
 
   .option-input {
+    @apply text-blue-900 font-bold text-xl;
+    font-family: "Gaegu", cursive;
     transform: rotate(90deg);
     text-align: center;
     background-color: transparent;

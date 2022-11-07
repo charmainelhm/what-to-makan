@@ -16,8 +16,11 @@ export default function FavList() {
     );
   });
   return (
-    <div className="grid grid-cols-auto-fill gap-5">
-      {foodArr.length === 0 ? "No items here yet" : foodArr}
-    </div>
+    <>
+      <h3>This is where you can find places you've starred!</h3>
+      <div className="grid grid-cols-auto-fill gap-5">
+        {foodArr.length === 0 ? "No items here yet" : foodArr}
+      </div>
+    </>
   );
 }

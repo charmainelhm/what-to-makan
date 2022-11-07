@@ -15,7 +15,7 @@ export default function Search({ updateInput }) {
   };
   return (
     <>
-      <p>This is the search section</p>
+      <h3>This is the search section</h3>
       <form onSubmit={handleSubmit}>
         <input
           value={input}

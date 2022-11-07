@@ -58,7 +58,7 @@ export default function Result({ food }) {
         alt="Restaurant"
       />
       <div className="grow text-start self-center space-y-1">
-        <h2 className="text-lg font-bold">
+        <h2>
           <a
             className="hover:underline"
             href={food.url}
@@ -70,7 +70,7 @@ export default function Result({ food }) {
           <span
             className={`${
               food.price ? "inline-block" : "hidden"
-            } bg-red-400 text-xs text-white font-semibold uppercase align-top px-2 py-1 rounded-full`}
+            } bg-red-400 text-sm text-white font-semibold uppercase align-top px-2 py-1 rounded-full`}
           >
             {food.price ? food.price : ""}
           </span>
