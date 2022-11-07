@@ -23,7 +23,7 @@ export default function FavItem({ food, removeFromFavList }) {
         </button>
       </div>
       <div className="p-5">
-        <h2 className="text-xl">
+        <h2>
           <a
             className="hover:underline"
             href={food.url}

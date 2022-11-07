@@ -80,7 +80,7 @@ export default function Roulette({ updateInput }) {
   }, [rotation]);
 
   return (
-    <>
+    <div className="card py-10 px-20">
       <h3>Can't decide what to eat? Let the wheel decide for you!</h3>
       <div className="wheel-wrapper">
         <div
@@ -90,7 +90,7 @@ export default function Roulette({ updateInput }) {
           {wheelSectionArr}
           <span className="wheel-pin"></span>
         </div>
-        <div className="wheel-stopper"></div>
+        <div className="wheel-stopper rounded"></div>
       </div>
       <button
         className="mt-2 btn btn-solid hover:btn-outline"
@@ -110,6 +110,6 @@ export default function Roulette({ updateInput }) {
           Search Chosen Food
         </button>
       </div>
-    </>
+    </div>
   );
 }

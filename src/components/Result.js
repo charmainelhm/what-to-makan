@@ -70,14 +70,14 @@ export default function Result({ food }) {
           <span
             className={`${
               food.price ? "inline-block" : "hidden"
-            } bg-red-400 text-sm text-white font-semibold uppercase align-top px-2 py-1 rounded-full`}
+            } bg-red-400 text-xs text-white font-semibold uppercase align-top px-2 py-1 rounded-full`}
           >
             {food.price ? food.price : ""}
           </span>
         </h2>
-        <p className="flex">{generateRating(food.rating)}</p>
+        <p className="flex text-yellow-400">{generateRating(food.rating)}</p>
         <p>
-          <IoLocationSharp className="inline-block" /> {address}
+          <IoLocationSharp className="inline-block text-gray-500" /> {address}
         </p>
       </div>
       <button

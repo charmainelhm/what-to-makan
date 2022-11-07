@@ -22,15 +22,15 @@
   h1,
   h2 {
     @apply font-bold;
-    font-family: "Gaegu", cursive;
   }
 
   h1 {
     font-size: 1.8rem;
+    font-family: "Gaegu", cursive;
   }
 
   h2 {
-    @apply text-2xl;
+    @apply text-lg;
   }
 
   h3 {
