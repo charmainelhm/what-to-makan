@@ -5,13 +5,13 @@ export default function Navigation() {
   return (
     <nav className="flex flex-col">
       <Link to="/" className="nav-item">
-        <IoFastFood className="inline-block" /> Eat What
+        <IoFastFood className="inline-block mr-1 align-baseline" /> Eat What
       </Link>
       <Link to="/eatWhere" className="nav-item">
-        <IoSearch className="inline-block" /> Eat Where
+        <IoSearch className="inline-block mr-1 align-baseline" /> Eat Where
       </Link>
       <Link to="/eatThese" className="nav-item">
-        <IoStar className="inline-block" /> Eat These
+        <IoStar className="inline-block mr-1 align-baseline" /> Eat These
       </Link>
     </nav>
   );
