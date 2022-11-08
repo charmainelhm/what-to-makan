@@ -78,7 +78,7 @@ function App() {
         </p>
       </div>
       <div className="content-container">
-        <ListsContext.Provider value={{ foodList, favList, setFavList }}>
+        <ListsContext.Provider value={{ foodList, favList, input, setFavList }}>
           <Switch>
             <Route exact path="/">
               <Roulette updateInput={updateInput} />
