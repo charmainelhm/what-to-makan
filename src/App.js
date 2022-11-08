@@ -59,7 +59,9 @@ function App() {
   return (
     <div className="App">
       <div className="sidebar">
-        <h1 className="bg-blue-800 px-4 py-6">What to Makan</h1>
+        <div className="bg-blue-800 px-5 py-7">
+          <h1> What to Makan</h1>
+        </div>
         <Navigation />
         <p className="mt-auto p-4">
           This is a demo version of the application which requires CORS to be
