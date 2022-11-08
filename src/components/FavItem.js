@@ -22,7 +22,7 @@ export default function FavItem({ food, removeFromFavList }) {
           <IoClose className="text-2xl" />
         </button>
       </div>
-      <div className="p-5">
+      <div className="px-5 py-7">
         <h2>
           <a
             className="hover:underline"
@@ -42,7 +42,7 @@ export default function FavItem({ food, removeFromFavList }) {
         </h2>
         {/* <p>Price range: {food.price ? food.price : "-"}</p> */}
         <p>
-          <IoLocationSharp className="inline-block" />
+          <IoLocationSharp className="inline-block text-gray-500 mr-1" />
           {address}
         </p>
       </div>
