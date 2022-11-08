@@ -16,7 +16,7 @@ export default function Search({ updateInput }) {
   };
   return (
     <>
-      {/* <h3>This is the search section</h3> */}
+      <h3 className="mb-3">Eat Where?</h3>
       <form onSubmit={handleSubmit} className="search-bar mb-4">
         <input
           className="grow py-3 px-4"

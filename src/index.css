@@ -20,7 +20,8 @@
   }
 
   h1,
-  h2 {
+  h2,
+  h3 {
     @apply font-bold;
   }
 
@@ -34,7 +35,7 @@
   }
 
   h3 {
-    @apply text-lg;
+    @apply text-2xl;
   }
 
   /* input {

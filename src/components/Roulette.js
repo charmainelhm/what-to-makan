@@ -80,8 +80,11 @@ export default function Roulette({ updateInput }) {
   }, [rotation]);
 
   return (
-    <div className="card py-10 px-20">
-      <h3>Can't decide what to eat? Let the wheel decide for you!</h3>
+    <div className="card py-10 px-24">
+      <h3 className="mb-1">Eat What?</h3>
+      <p className="text-lg">
+        Can't decide what to eat? Let the wheel decide for you!
+      </p>
       <div className="wheel-wrapper">
         <div
           className="wheel mb-4"
@@ -98,9 +101,13 @@ export default function Roulette({ updateInput }) {
       >
         Spin the Wheel
       </button>
+      <p className="text-sm mt-2">
+        Psst... Don't like the choices on the wheel? <br /> Click and highlight
+        the options to change them!
+      </p>
       <div
         className="flex justify-center items-center mt-6"
-        style={{ opacity: isSpinning ? "0" : "1" }}
+        style={{ display: isSpinning ? "none" : "flex" }}
       >
         <p>The wheel chooses {chosenOption}!</p>
         <button
