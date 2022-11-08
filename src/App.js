@@ -67,7 +67,7 @@ function App() {
           This is a demo version of the application which requires CORS to be
           enabled to function properly. Please click{" "}
           <a
-            className="text-yellow-400"
+            className="text-yellow-300"
             href="https://cors-anywhere.herokuapp.com/corsdemo"
             target="_blank"
             rel="noreferrer"
