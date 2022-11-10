@@ -80,7 +80,7 @@ function App() {
           <button className="sidebar-icon p-2 sm:hidden" onClick={handleClick}>
             <IoClose />
           </button>
-          <Navigation />
+          <Navigation handleClick={handleClick} />
           <p className="mt-auto p-4">
             This is a demo version of the application which requires CORS to be
             enabled to function properly. Please click{" "}

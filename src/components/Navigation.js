@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { IoStar, IoFastFood, IoSearch } from "react-icons/io5";
 
-export default function Navigation() {
+export default function Navigation({ handleClick }) {
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState();
 
   useEffect(() => {
     setCurrentPath(location.pathname);
+    handleClick();
   }, [location]);
 
   return (

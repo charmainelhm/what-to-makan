@@ -1,7 +1,6 @@
 import FavItem from "./FavItem";
 import { ListsContext } from "../App";
 import { useContext } from "react";
-import { IoStar } from "react-icons/io5";
 
 export default function FavList() {
   const { favList, setFavList } = useContext(ListsContext);
