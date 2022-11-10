@@ -57,7 +57,7 @@ export default function Result({ food }) {
         src={food.image_url}
         alt="Restaurant"
       />
-      <div className="grow text-start self-center space-y-1">
+      <div className="py-2 grow text-start self-center space-y-1">
         <h2>
           <a
             className="hover:underline"
@@ -70,19 +70,19 @@ export default function Result({ food }) {
           <span
             className={`${
               food.price ? "inline-block" : "hidden"
-            } bg-red-400 text-xs text-white font-semibold uppercase align-top px-2 py-1 rounded-full`}
+            } bg-red-400 text-xs text-white uppercase align-top px-2 py-1 rounded-full`}
           >
             {food.price ? food.price : ""}
           </span>
         </h2>
         <p className="flex text-yellow-400">{generateRating(food.rating)}</p>
-        <p>
+        <p className="text-sm lg:text-base">
           <IoLocationSharp className="inline-block text-gray-500" /> {address}
         </p>
       </div>
       <button
         title="Save item"
-        className="self-start p-4 text-yellow-400 text-[1.8rem] hover:scale-125"
+        className="self-start p-2 sm:p-4 text-yellow-400 text-[1.4rem] lg:text-[1.8rem] hover:scale-125"
         onClick={handleClick}
       >
         {favourite ? <IoStar /> : <IoStarOutline />}

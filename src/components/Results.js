@@ -11,7 +11,7 @@ export default function Results() {
 
   return (
     <div
-      className="max-w-[850px] mx-auto space-y-5"
+      className="w-11/12 max-w-[850px] mx-auto space-y-5"
       style={{ display: input === "" ? "none" : "block" }}
     >
       <p style={{ display: foodArr.length === 0 ? "none" : "block" }}>
