@@ -85,8 +85,7 @@ function App() {
           >
             <IoClose />
           </button>
-          <Navigation handleClick={handleClick} />
-          <p className="mt-auto p-4">
+          <p className="bg-blue-900 m-3 p-4 italic text-sm">
             This is a demo version of the application which requires CORS to be
             enabled to function properly. Please click{" "}
             <a
@@ -99,6 +98,7 @@ function App() {
             </a>{" "}
             to enable CORS!{" "}
           </p>
+          <Navigation handleClick={handleClick} />
         </div>
       </div>
       <div className="text-center py-6 md:content-container">
