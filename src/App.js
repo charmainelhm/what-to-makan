@@ -5,6 +5,7 @@ import FavList from "./components/FavList";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import { IoMenu, IoClose } from "react-icons/io5";
 
 const config = {
   headers: {
@@ -18,6 +19,7 @@ function App() {
   const [input, setInput] = useState("");
   const [foodList, setFoodList] = useState([]);
   const [favList, setFavList] = useState([]);
+  const [mobileNav, setMobileNav] = useState(false);
 
   const searchForFood = async () => {
     const corsApiUrl = "https://cors-anywhere.herokuapp.com/";
@@ -34,6 +36,11 @@ function App() {
 
   const updateInput = (string) => {
     setInput(string);
+  };
+
+  const handleClick = () => {
+    const boolean = !mobileNav;
+    setMobileNav(boolean);
   };
 
   // Retrieve fav listing from local storage
@@ -58,24 +65,36 @@ function App() {
 
   return (
     <div className="App">
-      <div className="sidebar">
-        <div className="bg-blue-800 px-5 py-7">
-          <h1> What to Makan</h1>
+      <div className="bg-blue-1000 text-white sm:sidebar">
+        <div className="flex justify-between sm:bg-blue-800 px-5 py-7">
+          <h1 className="text-2xl lg:text-[1.8rem]"> What to Makan</h1>
+          <button className="sidebar-icon sm:hidden" onClick={handleClick}>
+            <IoMenu />
+          </button>
         </div>
-        <Navigation />
-        <p className="mt-auto p-4">
-          This is a demo version of the application which requires CORS to be
-          enabled to function properly. Please click{" "}
-          <a
-            className="text-yellow-300"
-            href="https://cors-anywhere.herokuapp.com/corsdemo"
-            target="_blank"
-            rel="noreferrer"
-          >
-            here
-          </a>{" "}
-          to enable CORS!{" "}
-        </p>
+        <div
+          className={`mobile-nav ${
+            mobileNav ? "" : "translate-x-full"
+          } sm:relative sm:translate-x-0`}
+        >
+          <button className="sidebar-icon p-2 sm:hidden" onClick={handleClick}>
+            <IoClose />
+          </button>
+          <Navigation />
+          <p className="mt-auto p-4">
+            This is a demo version of the application which requires CORS to be
+            enabled to function properly. Please click{" "}
+            <a
+              className="text-yellow-300"
+              href="https://cors-anywhere.herokuapp.com/corsdemo"
+              target="_blank"
+              rel="noreferrer"
+            >
+              here
+            </a>{" "}
+            to enable CORS!{" "}
+          </p>
+        </div>
       </div>
       <div className="content-container">
         <ListsContext.Provider value={{ foodList, favList, input, setFavList }}>

@@ -70,7 +70,15 @@
   }
 
   .sidebar {
-    @apply text-white bg-blue-1000 fixed z-10 h-full w-1/4 max-w-xs overflow-hidden rounded-r-lg flex flex-col shadow-md;
+    @apply fixed z-10 h-full w-1/4 max-w-xs overflow-hidden rounded-r-lg flex flex-col shadow-md;
+  }
+
+  .sidebar-icon {
+    @apply block text-2xl;
+  }
+
+  .mobile-nav {
+    @apply bg-blue-1000 fixed z-10 h-full w-full max-w-sm top-0 right-0 transition-transform duration-500;
   }
 
   .nav-item {
