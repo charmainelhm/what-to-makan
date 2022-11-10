@@ -38,8 +38,7 @@ function App() {
     setInput(string);
   };
 
-  const handleClick = () => {
-    const boolean = !mobileNav;
+  const handleClick = (boolean = !mobileNav) => {
     setMobileNav(boolean);
   };
 

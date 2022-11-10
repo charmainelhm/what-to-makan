@@ -8,7 +8,7 @@ export default function Navigation({ handleClick }) {
 
   useEffect(() => {
     setCurrentPath(location.pathname);
-    handleClick();
+    handleClick(false);
   }, [location]);
 
   return (

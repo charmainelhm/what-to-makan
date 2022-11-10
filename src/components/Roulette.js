@@ -80,7 +80,7 @@ export default function Roulette({ updateInput }) {
   }, [rotation]);
 
   return (
-    <div className="card py-10 md:px-24">
+    <div className="card py-10 sm:w-11/12 max-w-5xl">
       <h3 className="mb-1">Eat What?</h3>
       <p className="md:text-lg">
         Can't decide what to eat?
@@ -107,12 +107,12 @@ export default function Roulette({ updateInput }) {
         the options to change them!
       </p>
       <div
-        className="flex justify-center items-center mt-6"
+        className="flex flex-col md:flex-row justify-center items-center mt-6"
         style={{ display: isSpinning ? "none" : "flex" }}
       >
         <p>The wheel chooses {chosenOption}!</p>
         <button
-          className="ml-4 btn btn-outline hover:btn-solid"
+          className="md:ml-4 btn btn-outline hover:btn-solid"
           onClick={handleSearch}
         >
           Search Chosen Food
