@@ -35,7 +35,7 @@
   }
 
   h3 {
-    @apply text-2xl;
+    @apply text-lg sm:text-2xl;
   }
 
   /* input {
@@ -95,7 +95,7 @@
   }
 
   .content-container {
-    @apply text-center py-6 flex flex-col;
+    @apply py-6 flex flex-col;
     margin-left: min(25%, 320px);
     min-height: 100vh;
     justify-content: center;

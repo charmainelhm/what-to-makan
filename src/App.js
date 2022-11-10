@@ -96,7 +96,7 @@ function App() {
           </p>
         </div>
       </div>
-      <div className="content-container">
+      <div className="text-center md:content-container">
         <ListsContext.Provider value={{ foodList, favList, input, setFavList }}>
           <Switch>
             <Route exact path="/">

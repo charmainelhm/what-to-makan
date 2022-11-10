@@ -80,10 +80,11 @@ export default function Roulette({ updateInput }) {
   }, [rotation]);
 
   return (
-    <div className="card py-10 px-24">
+    <div className="card py-10 md:px-24">
       <h3 className="mb-1">Eat What?</h3>
-      <p className="text-lg">
-        Can't decide what to eat? Let the wheel decide for you!
+      <p className="md:text-lg">
+        Can't decide what to eat?
+        <br /> Let the wheel decide for you!
       </p>
       <div className="wheel-wrapper">
         <div
