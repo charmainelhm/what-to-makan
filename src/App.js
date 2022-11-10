@@ -38,7 +38,7 @@ function App() {
     setInput(string);
   };
 
-  const handleClick = (boolean = !mobileNav) => {
+  const handleClick = (boolean) => {
     setMobileNav(boolean);
   };
 
@@ -67,7 +67,10 @@ function App() {
       <div className="bg-blue-1000 text-white sm:sidebar">
         <div className="flex justify-between sm:bg-blue-800 px-5 py-7">
           <h1 className="text-2xl lg:text-[1.8rem]"> What to Makan</h1>
-          <button className="sidebar-icon sm:hidden" onClick={handleClick}>
+          <button
+            className="sidebar-icon sm:hidden"
+            onClick={() => handleClick(true)}
+          >
             <IoMenu />
           </button>
         </div>
@@ -76,7 +79,10 @@ function App() {
             mobileNav ? "" : "translate-x-full"
           } sm:relative sm:translate-x-0`}
         >
-          <button className="sidebar-icon p-2 sm:hidden" onClick={handleClick}>
+          <button
+            className="sidebar-icon p-2 sm:hidden"
+            onClick={() => handleClick(false)}
+          >
             <IoClose />
           </button>
           <Navigation handleClick={handleClick} />
