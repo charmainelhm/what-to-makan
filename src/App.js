@@ -31,11 +31,14 @@ function App() {
 
     const data = await response.json();
     console.log(data.businesses);
-    setFoodList(data.businesses);
+    data.businesses.length > 0
+      ? setFoodList(data.businesses)
+      : setFoodList(["-1"]);
   };
 
   const updateInput = (string) => {
     setInput(string);
+    setFoodList([]);
   };
 
   const handleClick = (boolean) => {
