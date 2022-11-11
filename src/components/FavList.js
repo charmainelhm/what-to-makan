@@ -18,7 +18,10 @@ export default function FavList() {
   return (
     <>
       <h3>Eat These!</h3>
-      <p style={{ display: foodArr.length === 0 ? "block" : "none" }}>
+      <p
+        className="px-2"
+        style={{ display: foodArr.length === 0 ? "block" : "none" }}
+      >
         Places you have liked will be found here, start adding restaurants to
         your collection now!
       </p>
