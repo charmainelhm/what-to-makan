@@ -8,7 +8,6 @@ You can also hop straight to the "Eat Where" tab to search for places to eat. Li
 
 These are the cool friends that helped made my application possible
 
-```
 Built using:
 
 - [React](https://reactjs.org/)
@@ -22,10 +21,9 @@ API used:
 - [Yelp Fusion](https://fusion.yelp.com/)
 
 Other resources:
--[Binni - Web Design for Development Center](https://dribbble.com/shots/18670878-Binni-Web-Design-for-Development-Center) - Design inspiration
--[Spinner Tutorial](https://www.youtube.com/watch?v=2plnsl8P2zE&t=1891s) - Helped made the roulette wheel come to life
 
-```
+- [Binni - Web Design for Development Center](https://dribbble.com/shots/18670878-Binni-Web-Design-for-Development-Center) - Design inspiration
+- [Spinner Tutorial](https://www.youtube.com/watch?v=2plnsl8P2zE&t=1891s) - Helped made the roulette wheel come to life
 
 ### Wireframes
 
