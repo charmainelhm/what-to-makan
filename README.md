@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# What to Makan
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This web application is built for everyone who has trouble deciding what to eat (because that's the problem I encounter everyday. Yes, everyday.)
+Spin the wheel and let it decide for you what you should eat. Don't really like what's on the wheel? Simply highlight the options and type one that you would like.
+You can also hop straight to the "Eat Where" tab to search for places to eat. Like this place that you will want to try next time? Just save it by clicking on the ⭐ button and you can access them under the "Eat These" tab.
 
-## Available Scripts
+### Technical Used
 
-In the project directory, you can run:
+These are the cool friends that helped made my application possible
 
-### `npm start`
+```
+Built using:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [React](https://reactjs.org/)
+- [React Router](https://reactrouter.com/en/main)
+- [tailwindcss](https://tailwindcss.com/)
+- [react-icons](https://react-icons.github.io/react-icons/)
+- [CORS Anywhere](https://github.com/Rob--W/cors-anywhere)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+API used:
 
-### `npm test`
+- [Yelp Fusion](https://fusion.yelp.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Other resources:
+-[Binni - Web Design for Development Center](https://dribbble.com/shots/18670878-Binni-Web-Design-for-Development-Center) - Design inspiration
+-[Spinner Tutorial](https://www.youtube.com/watch?v=2plnsl8P2zE&t=1891s) - Helped made the roulette wheel come to life
 
-### `npm run build`
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Wireframes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Eat What
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Roulette Wireframe](./src/assets/wireframe_eatwhat.JPG)
 
-### `npm run eject`
+#### Eat Where
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Search Function Wireframe](./src/assets/wireframe_eatwhere.JPG)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Eat Where
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Starred Places Wireframe](./src/assets/wireframe_eatthese.PNG)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## How It Works
 
-## Learn More
+![](./src/assets/overview.jpg)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### App.js
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This is where the main bulk of the code lies. All data such as search input, the results returned from the API and list of starred places are stored here and can be accessed through React context by other components.
+As starred places are stored in the local storage, application will first check if there are any items previously starred and retrieves them.
+When user search for something on the search bar, results will be lifted to App.js where API calls are made. Results returned from the call will be stored in an array and get displayed accordingly.
 
-### Code Splitting
+#### Navigation.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This is the main navigation bar of the application and determines the path the application should be on when user clicks on any of the tab. Application will render the "Eat What" tab by default.
 
-### Analyzing the Bundle Size
+#### Roulette.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This is the main component for "Eat What" tab. When users spin the wheel, the chosen option can be lifted to App.js as the search input to be used to call the API. The React Router's useHistory hook will then transit to the "Eat Where" tab.
 
-### Making a Progressive Web App
+#### Search.js and Results.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This is where users can search for places to eat and results of the search will also be displayed here. When users submit their search query, the input will be lifted to App.js where the API call is done. After which Results.js component will retrieve the results from React Context and display them on the screen as individual Result.js component. A ⭐ button will also be rendered for each result to allow users to star places that they would like to try in the future. When users click on that button, it will add the result to the existing array of starred places within the context. By click on the star button again it will remove the place from the array. Changes made to this array will also trigger App.js to save the updated list on the local storage.
 
-### Advanced Configuration
+#### FavList.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This is the component which will render starred places onto the screen when users navigate to the "Eat These" tab. Users can choose to remove any item on the list by hovering over the image of the item and click on the ❌ button.
 
-### Deployment
+## Future Development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Adding a loading icon that runs when application is waiting for results returned from the API
+- Building back-end for the application for calling of the API
